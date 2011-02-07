@@ -1,0 +1,41 @@
+This directory contains a series of emacs helpers, and some code to
+make them all load automatically (with thanks to Era Eriksson for
+originally writing my-site-start).
+
+Adding a file with a name like NN-foo.el here (where NN is a 2-digit
+number, and foo is any name -- but see my-site-start docs for full
+details), or within a subdirectory of this directory, will
+automatically cause it to get run provided that that:
+
+(1) You've checked this out into ~/.emacs.d/emacs-helpers/ (or you
+    adjust the last line in (3) according to where you've checked it out)
+
+(2) You've checked out out a copy of my-site-start into ~/.emacs.d/my-site-start
+
+    To do this, if you have darcs (a revision control system), you can
+    run, from within ~/.emacs.d/:
+
+        darcs get http://porkmail.org/elisp/my-site-start/
+
+    see http://www.emacswiki.org/emacs/DotEmacsModular for more info
+
+    Note: I may very well incorporate my-site-start into this tree
+    directly at some point; I figure I'll attempt to contact Era
+    first, though, to hopefully avoid un-necessary forks.
+
+    I might also want to bail on this whole idea in favor of
+    incorporating https://github.com/technomancy/emacs-starter-kit/
+    ... but I need to take a closer look at that, first.
+
+(3) You've added the following lines (or something equivalent) into
+    your ~/.emacs or ~/.emacs.d/init.el file:
+
+---- snip ----
+;;; Emacs Load Path
+(setq load-path (cons "~/.emacs.d" load-path))
+
+;;;; break things up into individual files:
+; see http://www.emacswiki.org/emacs/DotEmacsModular
+(autoload 'my-site-start "my-site-start/my-site-start" nil t)
+(my-site-start "~/.emacs.d/emacs-helpers/")
+---- snip ----
