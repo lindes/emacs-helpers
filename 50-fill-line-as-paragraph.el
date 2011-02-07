@@ -1,3 +1,7 @@
+;;; fill-line-as-paragraph.el --- add fill-line-as-paragraph, C-M-l
+
+;; Copyright 2011 by David Lindes.  All rights reserved.
+
 (defun fill-line-as-paragraph()
   "Fill the current line [TODO: or the next n lines, with arg] as a paragraph."
   (interactive)
